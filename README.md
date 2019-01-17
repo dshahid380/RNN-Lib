@@ -3,4 +3,8 @@ In this repository i have build RNN and LSTM from scratch using numpy only. I am
 ### Dependencies:
   * python
   * numpy
+##### Reference :
+   * deeplearning.ai Convolutional Neural Network course.
+   * medium.com
+   * analyticsvidya' blog
 
