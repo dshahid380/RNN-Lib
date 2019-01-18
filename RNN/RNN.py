@@ -27,7 +27,6 @@ def rnn_forward(x, a0, parameters):
     a_next = a0
     
     for t in range(T_x):
-        # Update next hidden state, compute the prediction, get the cache (≈1 line)
         a_next, yt_pred, cache = rnn_cell_forward(x[:,:,t], a_next, parameters)
         # Save the value of the new "next" hidden state in a 
         a[:,:,t] = a_next
@@ -35,7 +34,7 @@ def rnn_forward(x, a0, parameters):
         y_pred[:,:,t] = yt_pred
         caches.append(cache)
        
-    # store values needed for backward propagation in cache
+    
     caches = (caches, x)
     
     return a, y_pred, caches
@@ -69,7 +68,6 @@ def rnn_backward(da, caches):
     n_a, m, T_x = da.shape
     n_x, m = x1.shape
     
-    # initialize the gradients with the right sizes
     dx = np.zeros((n_x, m, T_x))
     dWax = np.zeros((n_a, n_x))
     dWaa = np.zeros((n_a, n_a))
